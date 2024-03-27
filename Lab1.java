@@ -87,8 +87,9 @@ public class Lab1 {
             if(pivot < array[begin]) {
                 swap(array,begin,end);
             }
-            if(pivot >)
-            pivot > array[end]
+            if(pivot > array[end]) {
+                swap(array,begin,end);
+            }
         }
 
         //System.out.println(begin);
