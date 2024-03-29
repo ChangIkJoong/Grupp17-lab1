@@ -6,7 +6,7 @@ public class Lab1 {
     /** Sorting algorithms **/
 
     // Insertion sort.
-
+    //------------------------------------------------------------------------------
     public static void insertionSortSwap(int[] array) { //BAD
         int n = array.length;
         int currentValue;
@@ -42,7 +42,7 @@ public class Lab1 {
 
 
     // Quicksort.
-
+    //------------------------------------------------------------------------------
     public static void quickSort(int[] array) {
 
         int n = array.length;
@@ -58,8 +58,7 @@ public class Lab1 {
         }
 
         int pivot = partition(array, begin, end);
-        //System.out.println("\n\n" + "MY PIVOT : " + pivot);
-        //System.out.println("in quicksort : "+Arrays.toString(array));
+
 
         quickSort(array, begin, pivot - 1);
         quickSort(array, pivot + 1, end);
@@ -68,36 +67,29 @@ public class Lab1 {
     // Partition part of an array, and return the index where the pivot
     // ended up.
     private static int partition(int[] array, int begin, int end) {
-        int pivot = array[begin];
+        int pivotValue = array[begin];
+        int low = begin+1;
+        int high = end;
 
-        begin=begin+1;
-        end--;
-       // System.out.println(begin +" : "+end);
-
-        while(begin > end) {
-
-            if(array[begin] < pivot) {
-                begin++;
+        while(true) {
+            while (low <= end && array[low] < pivotValue) {
+                low++;
+            }
+            while (high > begin && array[high] > pivotValue) {
+                high--;
             }
 
-            if(array[end] > pivot) {
-                end--;
+            if(low >= high) {
+                break;
             }
-
-            if(pivot < array[begin]) {
-                swap(array,begin,end);
-            }
-            if(pivot > array[end]) {
-                swap(array,begin,end);
-            }
+            swap(array, low, high);
+            low++;
+            high--;
         }
 
-        //System.out.println(begin);
-        //System.out.println(end);
+        swap(array, high, begin);
 
-        swap(array, end, begin);
-
-        return pivot;
+        return high;
     }
 
     // Swap two elements in an array
@@ -108,7 +100,7 @@ public class Lab1 {
     }
 
     // Mergesort.
-
+    //------------------------------------------------------------------------------
     public static int[] mergeSort(int[] array) {
         int n = array.length;
 

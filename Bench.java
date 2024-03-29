@@ -10,15 +10,14 @@ import java.util.*;
 
 public class Bench {
     /** Main function **/
-
     public static void main(final String[] args) {
-        int[] a = new int[] {11,13,12,1,15,25,12,100,2,4};
-        System.out.println(Arrays.toString(a)+"\n");
+        int[] a = new int[] {5, 3, 9, 2, 8, 7, 3, 2, 1, 4,3, 2, 1, 6,1155,16,2346,46,426,426,62,462,6264,6,14,3414};
+        System.out.println(Arrays.toString(a)+"--ORIGINAL\n ");
 
         Lab1.quickSort(a);
         System.out.println(Arrays.toString(a));
 
-        //executionTimeReport();
+        executionTimeReport();
     }
 
     /** Test data generator **/
